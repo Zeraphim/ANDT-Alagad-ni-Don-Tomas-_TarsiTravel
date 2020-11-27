@@ -23,6 +23,11 @@ import android.os.Bundle
 import android.os.Looper
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
+import com.android.volley.Request
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.Volley
+import com.beust.klaxon.Klaxon
+import com.beust.klaxon.PathMatcher
 import com.google.android.gms.location.*
 
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -31,8 +36,11 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import org.json.JSONObject
+import java.util.regex.Pattern
+import com.google.gson.Gson
 
-internal class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
+internal class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapClickListener {
 
     private lateinit var mMap: GoogleMap
     private lateinit var fusedLocationClient: FusedLocationProviderClient
@@ -54,9 +62,8 @@ internal class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 locationResult ?: return
                 for (location in locationResult.locations){
                     Toast.makeText(applicationContext, "${location.latitude} and ${location.longitude}", Toast.LENGTH_LONG).show()
-                    if (!locationDetermined) {
-                        setUserLocation(LatLng(location.latitude, location.longitude))
-                    }
+                    setUserLocation(LatLng(location.latitude, location.longitude))
+                    stopLocationUpdates()
                 }
             }
         }
@@ -65,6 +72,8 @@ internal class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
         startLocationUpdates()
+        mMap.setOnMapClickListener(this)
+
     }
 
     @SuppressLint("MissingPermission")
@@ -82,8 +91,43 @@ internal class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         fusedLocationClient.requestLocationUpdates(locationRequest, locationCallback, null)
     }
 
+    private fun stopLocationUpdates() {
+        fusedLocationClient.removeLocationUpdates(locationCallback)
+    }
+
     fun setUserLocation(location : LatLng) {
         mMap.moveCamera(CameraUpdateFactory.newLatLng(location)) // The camera moves to the marker's position.
         mMap.moveCamera(CameraUpdateFactory.zoomTo(20f))
+    }
+
+    override fun onMapClick(point: LatLng) {
+        getJSON("${point.latitude}, ${point.longitude}")
+    }
+
+    fun getJSON(addressToGeocode: String) { // An HTTP GET request is sent to the Google Maps API
+        val queue = Volley.newRequestQueue(this) // A new Request queue is initialized. (Useful for multiple requests, but our app doesn't need that)
+        val apiKey = getString(R.string.google_maps_key) // The API key, stored as a value in "strings.xml"
+        var jsonobj = JSONObject() // Defines the file being received as a JSON.
+        val url =
+                "https://maps.googleapis.com/maps/api/geocode/json?address=${addressToGeocode}&key=${apiKey}" // The URL to be used.
+        val jsonObjectRequest = JsonObjectRequest( // Defines the HTTP GET request as a JSONObjectRequest
+                Request.Method.GET, url, jsonobj, // GET is the method of the HTTP request, url is the URL, and jsonobj is the expected data to be received.
+                { response -> // A lambda listener that executes code if the request is successful.
+
+                    Toast.makeText(this, "Volley request success", Toast.LENGTH_SHORT)
+                            .show() // prints a success message
+                    getLocationDetails(response) // the JSONObject is sent to parseDirectionsJSON()
+                },
+                { error -> // A lambda listener that executes code if the request failed.
+                    Toast.makeText(this, "Volley request failed", Toast.LENGTH_SHORT)
+                            .show() // prints an error message
+                    // TODO: Handle error
+                })
+        queue.add(jsonObjectRequest) // The request is added to the Queue.
+    }
+
+    fun getLocationDetails(response : JSONObject) {// query received JSON for data here
+        val locationDetails = Gson().fromJson(response.toString(), LocationDetails::class.java)
+        Toast.makeText(this, locationDetails.results[0].formatted_address, Toast.LENGTH_LONG).show()
     }
 }
