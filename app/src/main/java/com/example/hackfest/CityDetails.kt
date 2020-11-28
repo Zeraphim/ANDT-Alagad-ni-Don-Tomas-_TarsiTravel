@@ -17,8 +17,8 @@ class CityDetails : Activity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_city)
-        val recvAddress = intent.getStringExtra("ADDRESS")
-        findViewById<TextView>(R.id.mainAddress).text = recvAddress
+        findViewById<TextView>(R.id.mainAddress).text = intent.getStringExtra("firstAddress")
+        findViewById<TextView>(R.id.subAddress).text = intent.getStringExtra("secondAddress")
         window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
         window.setDimAmount(0.0f)
 

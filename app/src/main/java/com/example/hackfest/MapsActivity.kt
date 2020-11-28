@@ -145,9 +145,29 @@ internal class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap
     }
 
     fun getLocationDetails(response : JSONObject) {// query received JSON for data here
-        val locationDetails = Gson().fromJson(response.toString(), LocationDetails::class.java)
+        //val locationDetails = Gson().fromJson(response.toString(), LocationDetails::class.java)
+        val locationDetails = response.getJSONArray("results").getJSONObject(0).getJSONArray("address_components")
+        var firstAddress = ""
+        var secondAddress = "A city in "
+        for (i in 0 until locationDetails.length()) {
+            if ("political" in locationDetails.getJSONObject(i).getString("types").toString()) {
+                if ("locality" in locationDetails.getJSONObject(i).getString("types").toString()) {
+                    firstAddress += locationDetails.getJSONObject(i).getString("long_name" + " ")
+                }
+                else {
+                    if (i == locationDetails.length()-1) {
+                        secondAddress += locationDetails.getJSONObject(i).getString("long_name")
+                    }
+                    else {
+                        secondAddress += locationDetails.getJSONObject(i).getString("long_name") + ", "
+                    }
+                }
+            }
+        }
+
         var intent : Intent = Intent(this@MapsActivity, CityDetails::class.java);
-        intent.putExtra("ADDRESS", locationDetails.results[0].formatted_address);
+        intent.putExtra("firstAddress", firstAddress)
+        intent.putExtra("secondAddress", secondAddress)
         startActivity(intent)
     }
 }
