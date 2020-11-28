@@ -21,6 +21,20 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:targetApi="p" />
 
+    <ImageView
+        android:id="@+id/navBar"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:clickable="true"
+        android:contentDescription="@string/navbar"
+        android:contextClickable="true"
+        app:layout_constraintBottom_toTopOf="@+id/map"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_action_name" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="255dp"
@@ -41,6 +55,7 @@
         app:layout_constraintStart_toStartOf="@+id/toolbar"
         app:lineHeight="32sp" />
 
+    <!--
     <SearchView
         android:id="@+id/searchView"
         android:layout_width="24dp"
@@ -51,8 +66,10 @@
         android:layout_marginBottom="28dp"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" /> -->
 
     <ScrollView
         android:layout_width="412dp"
@@ -70,7 +87,7 @@
             android:orientation="vertical">
 
             <ImageButton
-                android:id="@+id/imageButton3"
+                android:id="@+id/covid_updates"
                 android:layout_width="382dp"
                 android:layout_height="104dp"
                 android:layout_marginStart="14dp"
@@ -78,17 +95,19 @@
                 android:layout_marginEnd="15dp"
                 android:background="@color/overboard"
                 android:scaleType="centerCrop"
-                app:srcCompat="@mipmap/ic_banner_foreground" />
+                app:srcCompat="@mipmap/covid_updates_button_foreground" />
 
 
             <ImageButton
-                android:id="@+id/button_logo_lpu"
+                android:id="@+id/covid_prevention"
                 android:layout_width="382dp"
                 android:layout_height="104dp"
                 android:layout_marginStart="14dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="15dp"
-                android:background="#E8CF6F"/>
+                android:background="@color/overboard"
+                android:scaleType="centerCrop"
+                app:srcCompat="@mipmap/covid_prevention_button_foreground" />
 
         </LinearLayout>
     </ScrollView>

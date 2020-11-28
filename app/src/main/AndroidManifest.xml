@@ -56,7 +56,7 @@
         </activity>
 
         <activity
-            android:name=".OnboardingActivity"
+            android:name=".OnboardingActivity1"
             android:label="Onboarding">
           <!--  <intent-filter>
 
