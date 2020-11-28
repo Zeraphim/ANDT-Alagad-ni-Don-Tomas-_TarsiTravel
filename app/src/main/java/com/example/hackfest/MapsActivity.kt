@@ -18,6 +18,7 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.app.SearchManager
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
@@ -145,6 +146,8 @@ internal class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap
 
     fun getLocationDetails(response : JSONObject) {// query received JSON for data here
         val locationDetails = Gson().fromJson(response.toString(), LocationDetails::class.java)
-        Toast.makeText(this, locationDetails.results[0].formatted_address, Toast.LENGTH_LONG).show()
+        var intent : Intent = Intent(this@MapsActivity, CityDetails::class.java);
+        intent.putExtra("ADDRESS", locationDetails.results[0].formatted_address);
+        startActivity(intent)
     }
 }
