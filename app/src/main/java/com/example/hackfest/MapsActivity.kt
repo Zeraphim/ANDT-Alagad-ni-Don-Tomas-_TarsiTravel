@@ -44,6 +44,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 import org.json.JSONObject
 import java.util.regex.Pattern
 import com.google.gson.Gson
+import java.lang.Exception
 
 internal class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapClickListener {
 
@@ -147,27 +148,29 @@ internal class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap
     fun getLocationDetails(response : JSONObject) {// query received JSON for data here
         //val locationDetails = Gson().fromJson(response.toString(), LocationDetails::class.java)
         val locationDetails = response.getJSONArray("results").getJSONObject(0).getJSONArray("address_components")
-        var firstAddress = ""
-        var secondAddress = "A city in "
-        for (i in 0 until locationDetails.length()) {
-            if ("political" in locationDetails.getJSONObject(i).getString("types").toString()) {
-                if ("locality" in locationDetails.getJSONObject(i).getString("types").toString()) {
-                    firstAddress += locationDetails.getJSONObject(i).getString("long_name" + " ")
-                }
-                else {
-                    if (i == locationDetails.length()-1) {
-                        secondAddress += locationDetails.getJSONObject(i).getString("long_name")
-                    }
-                    else {
-                        secondAddress += locationDetails.getJSONObject(i).getString("long_name") + ", "
+        try {
+            var firstAddress = ""
+            var secondAddress = "A city in "
+            for (i in 0 until locationDetails.length()) {
+                if ("political" in locationDetails.getJSONObject(i).getString("types").toString()) {
+                    if ("locality" in locationDetails.getJSONObject(i).getString("types").toString()) {
+                        firstAddress += locationDetails.getJSONObject(i).getString("long_name") + " "
+                    } else {
+                        if (i == locationDetails.length() - 1) {
+                            secondAddress += locationDetails.getJSONObject(i).getString("long_name")
+                        } else {
+                            secondAddress += locationDetails.getJSONObject(i).getString("long_name") + ", "
+                        }
                     }
                 }
             }
+            var intent : Intent = Intent(this@MapsActivity, CityDetails::class.java);
+            intent.putExtra("firstAddress", firstAddress)
+            intent.putExtra("secondAddress", secondAddress)
+            startActivity(intent)
         }
-
-        var intent : Intent = Intent(this@MapsActivity, CityDetails::class.java);
-        intent.putExtra("firstAddress", firstAddress)
-        intent.putExtra("secondAddress", secondAddress)
-        startActivity(intent)
+        catch (e : Exception) {
+            Toast.makeText(this, "An exception occured while fetching data. ERROR: Data unrecognized/Bad data.", Toast.LENGTH_LONG).show()
+        }
     }
 }
