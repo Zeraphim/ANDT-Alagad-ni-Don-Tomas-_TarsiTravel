@@ -16,11 +16,15 @@ package com.example.hackfest
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.app.SearchManager
+import android.content.Context
 import android.content.pm.PackageManager
 import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Looper
+import android.view.Menu
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.android.volley.Request
@@ -67,6 +71,19 @@ internal class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap
                 }
             }
         }
+        val searchView = findViewById<SearchView>(R.id.searchView)
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                searchView.clearFocus()
+                Toast.makeText(applicationContext, query, Toast.LENGTH_LONG).show()
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                return false
+            }
+        })
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
