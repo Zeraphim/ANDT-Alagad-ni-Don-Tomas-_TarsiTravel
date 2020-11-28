@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="#F1FFDE"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -30,7 +31,7 @@
         android:fontFamily="@font/sansation_regular_ff"
         android:lineSpacingExtra="10sp"
         android:text="@string/univ_tool_bar_title"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textColorHighlight="#FFFFFF"
         android:textColorLink="#FFFFFF"
         android:textSize="20sp"
@@ -53,84 +54,114 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="645dp"
-        android:orientation="vertical"
+    <ScrollView
+        android:layout_width="412dp"
+        android:layout_height="639dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
-        <Button
-            android:id="@+id/univ_button"
-            android:fontFamily="@font/Sansation_Regular"
-            android:layout_width="382dp"
-            android:layout_height="104dp"
-            android:layout_marginStart="14dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="15dp"
-            android:background="@drawable/button_color_univ"
-            android:text="@string/button_name_mu" />
-
-        <Button
-            android:id="@+id/univ_button2"
-            android:fontFamily="@font/Sansation_Regular"
-            android:layout_width="382dp"
-            android:layout_height="104dp"
-            android:layout_marginStart="14dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="15dp"
-            android:text="@string/button_name_lpu" />
-
-        <Button
-            android:id="@+id/univ_button3"
-            android:layout_width="382dp"
-            android:layout_height="104dp"
-            android:layout_marginStart="14dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="15dp"
-            android:text="" />
-
-        <Button
-            android:id="@+id/univ_button4"
-            android:layout_width="382dp"
-            android:layout_height="104dp"
-            android:layout_marginStart="14dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="15dp"
-            android:text="" />
-
-        <Button
-            android:id="@+id/univ_button5"
-            android:layout_width="382dp"
-            android:layout_height="104dp"
-            android:layout_marginStart="14dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="15dp"
-            android:text="" />
-
-        <Button
-            android:id="@+id/univ_button6"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="104dp"
-            android:layout_marginStart="14dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="15dp"
-            android:text="" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/univ_button7"
-            android:layout_width="match_parent"
-            android:layout_height="104dp"
-            android:layout_marginStart="14dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="15dp"
-            android:text="" />
+            <ImageButton
+                android:id="@+id/button_logo_feu"
+                android:layout_width="382dp"
+                android:layout_height="104dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:background="#E8CF6F"
+                android:contentDescription="@string/feu_logo"
+                app:srcCompat="@mipmap/feu_logo_foreground" />
 
+            <ImageButton
+                android:id="@+id/button_logo_mu"
+                android:layout_width="382dp"
+                android:layout_height="104dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:background="#E8CF6F"
+                android:contentDescription="@string/mu_logo"
+                app:srcCompat="@mipmap/mu_logo" />
 
-    </LinearLayout>
+            <ImageButton
+                android:id="@+id/button_logo_dlsu"
+                android:layout_width="382dp"
+                android:layout_height="104dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:background="#E8CF6F"
+                android:contentDescription="@string/dlsu_logo"
+                app:srcCompat="@mipmap/dlsu_logo_foreground" />
+
+            <ImageButton
+                android:id="@+id/button_logo_admu"
+                android:layout_width="382dp"
+                android:layout_height="104dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:background="#E8CF6F"
+                android:contentDescription="@string/admu_logo"
+                app:srcCompat="@mipmap/admu_logo_foreground" />
+
+            <ImageButton
+                android:id="@+id/button_logo_plm"
+                android:layout_width="382dp"
+                android:layout_height="104dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:background="#E8CF6F"
+                android:contentDescription="@string/plm_logo"
+                app:srcCompat="@mipmap/PLM_logo_foreground" />
+
+            <ImageButton
+                android:id="@+id/button_logo_letran"
+                android:layout_width="382dp"
+                android:layout_height="104dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:background="#E8CF6F"
+                android:contentDescription="@string/letran_logo"
+                app:srcCompat="@mipmap/letran_logo_foreground" />
+
+            <ImageButton
+                android:id="@+id/button_logo_lpu"
+                android:layout_width="382dp"
+                android:layout_height="104dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:background="#E8CF6F"
+                android:contentDescription="@string/lpu_logo"
+                app:srcCompat="@mipmap/lpu_logo_foreground" />
+
+            <ImageButton
+                android:id="@+id/button_logo_pnu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@mipmap/pnu_logo_foreground" />
+
+            <ImageButton
+                android:id="@+id/button_logo_udm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@mipmap/udm_logo_foreground" />
+
+            <ImageButton
+                android:id="@+id/button_logo_nu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@mipmap/nu_logo_foreground" />
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
