@@ -3,44 +3,62 @@
     xmlns:map="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <fragment
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="411dp"
+        android:layout_height="565dp"
         map:layout_constraintBottom_toBottomOf="parent"
         map:layout_constraintEnd_toEndOf="parent"
+        map:layout_constraintHorizontal_bias="0.444"
         map:layout_constraintStart_toStartOf="parent"
-        map:layout_constraintTop_toBottomOf="@+id/searchView"
+        map:layout_constraintTop_toBottomOf="@+id/toolbar"
         tools:context=".MapsActivity" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="411dp"
+        android:layout_height="93dp"
+        android:background="#48C363"
+        android:contextClickable="false"
+        android:minHeight="?attr/actionBarSize"
+        android:outlineAmbientShadowColor="@color/black"
+        android:outlineSpotShadowColor="@color/black"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:targetApi="p" />
 
     <ImageView
         android:id="@+id/navBar"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginStart="8dp"
         android:clickable="true"
         android:contextClickable="true"
-        map:layout_constraintBottom_toTopOf="@+id/map"
-        map:layout_constraintStart_toStartOf="parent"
-        map:layout_constraintTop_toTopOf="parent"
-        map:srcCompat="@drawable/ic_action_name" />
+        map:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        map:layout_constraintEnd_toEndOf="@+id/toolbar"
+        map:layout_constraintHorizontal_bias="0.041"
+        map:layout_constraintStart_toStartOf="@+id/toolbar"
+        map:layout_constraintTop_toTopOf="@+id/toolbar"
+        map:layout_constraintVertical_bias="0.539"
+        map:srcCompat="@drawable/ic_action_name"
+        android:contentDescription="@string/navbar" />
 
     <SearchView
         android:id="@+id/searchView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="37dp"
+        android:layout_height="34dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        map:layout_constraintBottom_toTopOf="@+id/map"
+        map:layout_constraintBottom_toBottomOf="@+id/toolbar"
         map:layout_constraintEnd_toEndOf="parent"
-        map:layout_constraintHorizontal_bias="0.976"
-        map:layout_constraintStart_toStartOf="parent"
-        map:layout_constraintTop_toTopOf="parent">
+        map:layout_constraintHorizontal_bias="0.978"
+        map:layout_constraintStart_toStartOf="@+id/toolbar"
+        map:layout_constraintTop_toTopOf="@+id/toolbar"
+        map:layout_constraintVertical_bias="0.508">
 
     </SearchView>
 
