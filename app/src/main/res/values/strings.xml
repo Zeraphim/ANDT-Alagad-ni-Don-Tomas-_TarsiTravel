@@ -13,4 +13,7 @@
     <string name="lpu_logo">lpu_logo</string>
     <string name="launch">LAUNCH!</string>
     <string name="covid_19_updates">COVID-19 Updates</string>
+    <string name="button_logo_pnu">button_logo_pnu</string>
+    <string name="navbar">navBar</string>
+
 </resources>

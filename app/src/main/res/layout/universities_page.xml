@@ -12,14 +12,42 @@
         android:layout_height="93dp"
         android:background="#48C363"
         android:contextClickable="false"
-        android:outlineSpotShadowColor="@color/black"
-        android:outlineAmbientShadowColor="@color/black"
         android:minHeight="?attr/actionBarSize"
+        android:outlineAmbientShadowColor="@color/black"
+        android:outlineSpotShadowColor="@color/black"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:targetApi="p" />
+
+    <ImageView
+        android:id="@+id/navBar"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:clickable="true"
+        android:contentDescription="@string/navbar"
+        android:contextClickable="true"
+        app:layout_constraintBottom_toTopOf="@+id/map"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_action_name" />
+
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/map"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.976"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/textView"
@@ -41,25 +69,11 @@
         app:layout_constraintStart_toStartOf="@+id/toolbar"
         app:lineHeight="32sp" />
 
-    <SearchView
-        android:id="@+id/searchView"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="339dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="28dp"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ScrollView
-        android:layout_width="412dp"
-        android:layout_height="639dp"
+        android:layout_width="411dp"
+        android:layout_height="559dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:layout_constraintVertical_bias="0.0">
@@ -114,17 +128,6 @@
                 app:srcCompat="@mipmap/admu_logo_foreground" />
 
             <ImageButton
-                android:id="@+id/button_logo_plm"
-                android:layout_width="382dp"
-                android:layout_height="104dp"
-                android:layout_marginStart="14dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="15dp"
-                android:background="#E8CF6F"
-                android:contentDescription="@string/plm_logo"
-                app:srcCompat="@mipmap/plm_logo_foreground" />
-
-            <ImageButton
                 android:id="@+id/button_logo_letran"
                 android:layout_width="382dp"
                 android:layout_height="104dp"
@@ -150,18 +153,21 @@
                 android:id="@+id/button_logo_pnu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/button_logo_pnu"
                 app:srcCompat="@mipmap/pnu_logo_foreground" />
 
             <ImageButton
                 android:id="@+id/button_logo_udm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/button_logo_pnu"
                 app:srcCompat="@mipmap/udm_logo_foreground" />
 
             <ImageButton
                 android:id="@+id/button_logo_nu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/button_logo_pnu"
                 app:srcCompat="@mipmap/nu_logo_foreground" />
         </LinearLayout>
     </ScrollView>
