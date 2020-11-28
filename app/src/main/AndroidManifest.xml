@@ -11,11 +11,16 @@
     <application
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher_foreground"
         android:supportsRtl="true"
         android:theme="@style/Theme.HackFest">
-        <activity android:name=".CityDetails" android:theme="@style/Theme.Transparent">
-        </activity>
+        <activity android:name=".UnivActivity"></activity>
+        <activity
+            android:name=".NavActivity"
+            android:theme="@style/Theme.Transparent2"></activity>
+        <activity
+            android:name=".CityDetails"
+            android:theme="@style/Theme.Transparent"></activity>
         <activity android:name=".SearchableActivity">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
