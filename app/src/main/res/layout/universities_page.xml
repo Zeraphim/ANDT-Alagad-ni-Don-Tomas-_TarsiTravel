@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#F1FFDE"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="411dp"
+        android:layout_height="93dp"
+        android:background="#48C363"
+        android:contextClickable="false"
+        android:outlineSpotShadowColor="@color/black"
+        android:outlineAmbientShadowColor="@color/black"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:targetApi="p" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="255dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginEnd="84dp"
+        android:layout_marginBottom="28dp"
+        android:fontFamily="@font/sansation_regular_ff"
+        android:lineSpacingExtra="10sp"
+        android:text="@string/univ_tool_bar_title"
+        android:textColor="#000000"
+        android:textColorHighlight="#FFFFFF"
+        android:textColorLink="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/toolbar"
+        app:lineHeight="32sp" />
+
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="339dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="28dp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="412dp"
+        android:layout_height="639dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/button_logo_feu"
+                android:layout_width="382dp"
+                android:layout_height="104dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:background="#E8CF6F"
+                android:contentDescription="@string/feu_logo"
+                app:srcCompat="@mipmap/feu_logo_foreground" />
+
+            <ImageButton
+                android:id="@+id/button_logo_mu"
+                android:layout_width="382dp"
+                android:layout_height="104dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:background="#E8CF6F"
+                android:contentDescription="@string/mu_logo"
+                app:srcCompat="@mipmap/mu_logo" />
+
+            <ImageButton
+                android:id="@+id/button_logo_dlsu"
+                android:layout_width="382dp"
+                android:layout_height="104dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:background="#E8CF6F"
+                android:contentDescription="@string/dlsu_logo"
+                app:srcCompat="@mipmap/dlsu_logo_foreground" />
+
+            <ImageButton
+                android:id="@+id/button_logo_admu"
+                android:layout_width="382dp"
+                android:layout_height="104dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:background="#E8CF6F"
+                android:contentDescription="@string/admu_logo"
+                app:srcCompat="@mipmap/admu_logo_foreground" />
+
+            <ImageButton
+                android:id="@+id/button_logo_plm"
+                android:layout_width="382dp"
+                android:layout_height="104dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:background="#E8CF6F"
+                android:contentDescription="@string/plm_logo"
+                app:srcCompat="@mipmap/PLM_logo_foreground" />
+
+            <ImageButton
+                android:id="@+id/button_logo_letran"
+                android:layout_width="382dp"
+                android:layout_height="104dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:background="#E8CF6F"
+                android:contentDescription="@string/letran_logo"
+                app:srcCompat="@mipmap/letran_logo_foreground" />
+
+            <ImageButton
+                android:id="@+id/button_logo_lpu"
+                android:layout_width="382dp"
+                android:layout_height="104dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:background="#E8CF6F"
+                android:contentDescription="@string/lpu_logo"
+                app:srcCompat="@mipmap/lpu_logo_foreground" />
+
+            <ImageButton
+                android:id="@+id/button_logo_pnu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@mipmap/pnu_logo_foreground" />
+
+            <ImageButton
+                android:id="@+id/button_logo_udm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@mipmap/udm_logo_foreground" />
+
+            <ImageButton
+                android:id="@+id/button_logo_nu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@mipmap/nu_logo_foreground" />
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
