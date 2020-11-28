@@ -15,4 +15,11 @@ class LocationDetails {
 
 class Results {
     val formatted_address = ""// same as routes
+    val address_components = ArrayList<AddressComponents>()
+}
+
+class AddressComponents {
+    val long_name = ""
+    val short_name = ""
+    val types = ""
 }
