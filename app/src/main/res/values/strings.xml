@@ -1,4 +1,14 @@
 <resources>
     <string name="app_name">HackFest</string>
     <string name="title_activity_maps">Map</string>
+    <string name="univ_tool_bar_title">UNIVERSITIES</string>
+    <string name="button_name_mu">mapua university</string>
+    <string name="button_name_lpu">Lyceum of the Philippines University</string>
+    <string name="mu_logo">mu_logo</string>
+    <string name="dlsu_logo">dlsu_logo</string>
+    <string name="admu_logo">admu_logo</string>
+    <string name="plm_logo">plm_logo</string>
+    <string name="feu_logo">feu_logo</string>
+    <string name="letran_logo">letran_logo</string>
+    <string name="lpu_logo">lpu_logo</string>
 </resources>
