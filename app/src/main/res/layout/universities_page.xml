@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="411dp"
+        android:layout_height="93dp"
+        android:background="#48C363"
+        android:contextClickable="false"
+        android:outlineSpotShadowColor="@color/black"
+        android:outlineAmbientShadowColor="@color/black"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:targetApi="p" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="255dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginEnd="84dp"
+        android:layout_marginBottom="28dp"
+        android:fontFamily="@font/sansation_regular_ff"
+        android:lineSpacingExtra="10sp"
+        android:text="@string/univ_tool_bar_title"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FFFFFF"
+        android:textColorLink="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/toolbar"
+        app:lineHeight="32sp" />
+
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="339dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="28dp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="409dp"
+        android:layout_height="645dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.0">
+
+        <Button
+            android:id="@+id/univ_button"
+            android:fontFamily="@font/Sansation_Regular"
+            android:layout_width="382dp"
+            android:layout_height="104dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/button_color_univ"
+            android:text="@string/button_name_mu" />
+
+        <Button
+            android:id="@+id/univ_button2"
+            android:fontFamily="@font/Sansation_Regular"
+            android:layout_width="382dp"
+            android:layout_height="104dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:text="@string/button_name_lpu" />
+
+        <Button
+            android:id="@+id/univ_button3"
+            android:layout_width="382dp"
+            android:layout_height="104dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:text="" />
+
+        <Button
+            android:id="@+id/univ_button4"
+            android:layout_width="382dp"
+            android:layout_height="104dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:text="" />
+
+        <Button
+            android:id="@+id/univ_button5"
+            android:layout_width="382dp"
+            android:layout_height="104dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:text="" />
+
+        <Button
+            android:id="@+id/univ_button6"
+            android:layout_width="match_parent"
+            android:layout_height="104dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:text="" />
+
+        <Button
+            android:id="@+id/univ_button7"
+            android:layout_width="match_parent"
+            android:layout_height="104dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:text="" />
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

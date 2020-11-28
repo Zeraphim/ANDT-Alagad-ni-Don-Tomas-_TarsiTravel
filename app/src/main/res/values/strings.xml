@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">HackFest</string>
     <string name="title_activity_maps">Map</string>
+    <string name="univ_tool_bar_title">UNIVERSITIES</string>
+    <string name="button_name_mu">mapua university</string>
+    <string name="button_name_lpu">Lyceum of the Philippines University</string>
 </resources>
