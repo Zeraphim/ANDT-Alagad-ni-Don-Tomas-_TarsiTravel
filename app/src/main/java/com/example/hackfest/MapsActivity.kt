@@ -16,11 +16,16 @@ package com.example.hackfest
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.app.SearchManager
+import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Looper
+import android.view.Menu
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.android.volley.Request
@@ -39,6 +44,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 import org.json.JSONObject
 import java.util.regex.Pattern
 import com.google.gson.Gson
+import java.lang.Exception
 
 internal class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapClickListener {
 
@@ -67,6 +73,19 @@ internal class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap
                 }
             }
         }
+        val searchView = findViewById<SearchView>(R.id.searchView)
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                searchView.clearFocus()
+                Toast.makeText(applicationContext, query, Toast.LENGTH_LONG).show()
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                return false
+            }
+        })
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -127,7 +146,31 @@ internal class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap
     }
 
     fun getLocationDetails(response : JSONObject) {// query received JSON for data here
-        val locationDetails = Gson().fromJson(response.toString(), LocationDetails::class.java)
-        Toast.makeText(this, locationDetails.results[0].formatted_address, Toast.LENGTH_LONG).show()
+        //val locationDetails = Gson().fromJson(response.toString(), LocationDetails::class.java)
+        val locationDetails = response.getJSONArray("results").getJSONObject(0).getJSONArray("address_components")
+        try {
+            var firstAddress = ""
+            var secondAddress = "A city in "
+            for (i in 0 until locationDetails.length()) {
+                if ("political" in locationDetails.getJSONObject(i).getString("types").toString()) {
+                    if ("locality" in locationDetails.getJSONObject(i).getString("types").toString()) {
+                        firstAddress += locationDetails.getJSONObject(i).getString("long_name") + " "
+                    } else {
+                        if (i == locationDetails.length() - 1) {
+                            secondAddress += locationDetails.getJSONObject(i).getString("long_name")
+                        } else {
+                            secondAddress += locationDetails.getJSONObject(i).getString("long_name") + ", "
+                        }
+                    }
+                }
+            }
+            var intent : Intent = Intent(this@MapsActivity, CityDetails::class.java);
+            intent.putExtra("firstAddress", firstAddress)
+            intent.putExtra("secondAddress", secondAddress)
+            startActivity(intent)
+        }
+        catch (e : Exception) {
+            Toast.makeText(this, "An exception occured while fetching data. ERROR: Data unrecognized/Bad data.", Toast.LENGTH_LONG).show()
+        }
     }
 }
