@@ -189,8 +189,19 @@
                                 android:id="@+id/textView12"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="8sp"
+                                android:layout_marginTop="8dp"
                                 android:text="Recent News"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/cardView3" />
+
+                            <TextView
+                                android:id="@+id/textView13"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="60dp"
+                                android:text="Recent news will appear here when available"
+                                android:textSize="8dp"
+                                app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toBottomOf="@+id/cardView3" />
 
