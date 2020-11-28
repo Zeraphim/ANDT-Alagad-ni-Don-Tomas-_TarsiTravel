@@ -25,6 +25,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Looper
 import android.view.Menu
+import android.widget.ImageView
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
@@ -62,6 +63,11 @@ internal class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap
         val mapFragment = supportFragmentManager
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
+        val navBar = findViewById<ImageView>(R.id.navBar).setOnClickListener {
+            var intent : Intent = Intent(this@MapsActivity, NavActivity::class.java)
+            startActivity(intent)
+        }
 
         locationCallback = object : LocationCallback() {
             override fun onLocationResult(locationResult: LocationResult?) {
@@ -132,9 +138,6 @@ internal class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap
         val jsonObjectRequest = JsonObjectRequest( // Defines the HTTP GET request as a JSONObjectRequest
                 Request.Method.GET, url, jsonobj, // GET is the method of the HTTP request, url is the URL, and jsonobj is the expected data to be received.
                 { response -> // A lambda listener that executes code if the request is successful.
-
-                    Toast.makeText(this, "Volley request success", Toast.LENGTH_SHORT)
-                            .show() // prints a success message
                     getLocationDetails(response) // the JSONObject is sent to parseDirectionsJSON()
                 },
                 { error -> // A lambda listener that executes code if the request failed.
@@ -164,7 +167,7 @@ internal class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap
                     }
                 }
             }
-            var intent : Intent = Intent(this@MapsActivity, CityDetails::class.java);
+            var intent : Intent = Intent(this@MapsActivity, CityDetails::class.java)
             intent.putExtra("firstAddress", firstAddress)
             intent.putExtra("secondAddress", secondAddress)
             startActivity(intent)
@@ -172,5 +175,10 @@ internal class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap
         catch (e : Exception) {
             Toast.makeText(this, "An exception occured while fetching data. ERROR: Data unrecognized/Bad data.", Toast.LENGTH_LONG).show()
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
     }
 }
