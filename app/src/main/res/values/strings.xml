@@ -15,5 +15,12 @@
     <string name="covid_19_updates">COVID-19 Updates</string>
     <string name="button_logo_pnu">button_logo_pnu</string>
     <string name="navbar">navBar</string>
+    <string name="button_logo_pup">button_logo_pup</string>
+    <string name="button_logo_ue">button_logo_ue</string>
+    <string name="button_logo_ust">button_logo_ust</string>
+    <string name="button_logo_tup">button_logo_tup</string>
+    <string name="button_logo_upm">button_logo_upm</string>
+    <string name="button_logo_plm">button_logo_plm</string>
+    <string name="button_logo_udm">button_logo_udm</string>
 
 </resources>
