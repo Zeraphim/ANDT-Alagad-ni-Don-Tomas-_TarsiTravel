@@ -205,8 +205,12 @@
 
             <ImageButton
                 android:id="@+id/button_logo_udm"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="382dp"
+                android:layout_height="104dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:background="#E8CF6F"
                 app:srcCompat="@mipmap/udm_logo_foreground"
                 android:contentDescription="@string/button_logo_udm" />
 

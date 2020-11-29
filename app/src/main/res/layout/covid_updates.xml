@@ -74,10 +74,55 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/textView14"
+                android:layout_width="match_parent"
+                android:layout_height="59dp"
+                android:paddingTop="20dp"
+                android:text="COVID19 Cases as of November 28, 2020"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textSize="16dp"
+                tools:text="COVID19 Cases as of November 28, 2020" />
+
+            <TextView
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="City A" />
+                android:layout_height="37dp"
+                android:layout_marginTop="10dp"
+                android:paddingTop="8dp"
+                android:text="Manila - 26, 674 Cases" />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:layout_marginTop="10dp"
+                android:paddingTop="8dp"
+                android:text="Quezon City - 35, 803 Cases" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:layout_marginTop="10dp"
+                android:paddingTop="8dp"
+                android:text="Makati - 12, 632 Cases" />
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:layout_marginTop="10dp"
+                android:paddingTop="8dp"
+                android:text="Caloocan - 13, 625 Cases" />
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:layout_marginTop="10dp"
+                android:paddingTop="8dp"
+                android:text="Pasay - 11, 225 Cases" />
 
         </LinearLayout>
     </ScrollView>
