@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 
 
@@ -23,7 +24,10 @@ class TravelCompanionActivity: AppCompatActivity(){
             startActivity(intent)
         }
 
-
+        val navBar = findViewById<ImageView>(R.id.navBar).setOnClickListener {
+            var intent : Intent = Intent(this, NavActivity::class.java)
+            startActivity(intent)
+        }
     }
     override fun onBackPressed() {
         super.onBackPressed()
