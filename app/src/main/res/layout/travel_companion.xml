@@ -4,7 +4,9 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".TravelCompanionActivity">
+    tools:context=".TravelCompanionActivity"
+    android:background="@color/white"
+    >
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"

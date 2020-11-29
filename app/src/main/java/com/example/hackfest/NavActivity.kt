@@ -23,6 +23,8 @@ class NavActivity : Activity() {
 
         val homeBtn = findViewById<Button>(R.id.homeBtn).setOnClickListener {
             onBackPressed()
+            val intent : Intent = Intent(this@NavActivity, MapsActivity::class.java)
+            startActivity(intent)
         }
         val univBtn = findViewById<Button>(R.id.univBtn).setOnClickListener {
             val intent : Intent = Intent(this@NavActivity, UnivActivity::class.java)
@@ -30,6 +32,8 @@ class NavActivity : Activity() {
         }
         val travelBtn = findViewById<Button>(R.id.travelBtn).setOnClickListener {
             onBackPressed()
+            val intent : Intent = Intent(this@NavActivity, TravelCompanionActivity::class.java)
+            startActivity(intent)
         }
         val settingsBtn = findViewById<Button>(R.id.settingsBtn).setOnClickListener {
             onBackPressed()

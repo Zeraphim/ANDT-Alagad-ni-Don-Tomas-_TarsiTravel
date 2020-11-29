@@ -66,8 +66,12 @@
             </intent-filter> -->
         </activity>
 
+        <activity
+            android:name=".TravelCompanionActivity">
+        </activity>
 
-
+        <activity android:name=".CovidPreventionActivity"></activity>
+        <activity android:name=".CovidUpdatesActivity"></activity>
     </application>
 
 </manifest>
