@@ -23,9 +23,9 @@
             android:name=".CityDetails"
             android:theme="@style/Theme.Transparent"></activity>
         <activity android:name=".SearchableActivity">
-            <intent-filter>
+         <!--   <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
-            </intent-filter>
+            </intent-filter> -->
 
             <meta-data
                 android:name="android.app.searchable"
@@ -46,19 +46,19 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps">
-            <intent-filter>
+         <!--   <intent-filter>
 
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
 
-            </intent-filter>
+            </intent-filter> -->
 
         </activity>
 
         <activity
             android:name=".OnboardingActivity1"
             android:label="Onboarding">
-          <!--  <intent-filter>
+           <!-- <intent-filter>
 
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -67,11 +67,30 @@
         </activity>
 
         <activity
+            android:name=".OnboardingActivity2">
+
+        </activity>
+        <activity
+            android:name=".OnboardingActivity3">
+        </activity>
+        <activity
             android:name=".TravelCompanionActivity">
         </activity>
 
         <activity android:name=".CovidPreventionActivity"></activity>
         <activity android:name=".CovidUpdatesActivity"></activity>
+
+        <activity
+            android:name=".OnboardingActivity"
+            android:label="TarsiTravel">
+            <intent-filter>
+
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>
